@@ -40,8 +40,13 @@
                 
                 <span class="search-label">đến:</span>
                 <asp:TextBox ID="txtGiaDen" runat="server" TextMode="Number" CssClass="price-box"></asp:TextBox>
-                
                 <asp:Button ID="btnTimKiem" runat="server" Text="Tìm kiếm" CssClass="btn-search" />
+               
+                 <asp:CompareValidator ID="cvGia" runat="server" 
+                     ControlToValidate="txtGiaDen" ControlToCompare="txtGiaTu"
+                     Operator="GreaterThanEqual" Type="Double"
+                    ErrorMessage="Giá Đến đang nhỏ hơn giá từ" Display="Dynamic" ForeColor="Red"> </asp:CompareValidator>
+               
             </div>
         </div>
         
