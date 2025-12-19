@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Thêm Hoa Mới" Language="C#" MasterPageFile="~/layoutmaster.Master" 
-    AutoEventWireup="true" CodeBehind="tracuu.aspx.cs" Inherits="clone.tracuu" %>
+    AutoEventWireup="true" CodeBehind="themhoa.aspx.cs" Inherits="clone.themhoa" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">

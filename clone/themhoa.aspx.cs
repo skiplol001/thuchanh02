@@ -13,5 +13,35 @@ namespace clone
         {
 
         }
+
+        protected void btnthem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (fuhinh.HasFile)
+                {
+                    string tenFile = fuhinh.FileName;
+                    string path = Server.MapPath("~/Images/") + tenFile;
+                    fuhinh.SaveAs(path);
+
+                    SqlDataSource2.InsertParameters["Hinh"].DefaultValue = tenFile;
+
+                    SqlDataSource2.Insert();
+
+                    lblThongBao.Text = "Thêm hoa thành công!";
+                    lblThongBao.ForeColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    lblThongBao.Text = "Bạn chưa chọn ảnh!";
+                    lblThongBao.ForeColor = System.Drawing.Color.Red;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblThongBao.Text = "Lỗi: " + ex.Message;
+                lblThongBao.ForeColor = System.Drawing.Color.Red;
+            }
+        }
     }
 }
