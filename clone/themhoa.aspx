@@ -30,7 +30,6 @@
             <tr>
                 <td class="auto-style4">Tên Hoa<span style="color:red">*</span>:</td>
                 <td style="text-align: left">
-                    <%-- Sửa ID thành txtTenHoa cho khớp --%>
                     <asp:TextBox ID="txtTenHoa" runat="server" CssClass="text-input"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvTenHoa" runat="server"
                         ControlToValidate="txtTenHoa" ErrorMessage="Chưa nhập tên hoa"
@@ -40,7 +39,6 @@
             <tr>
                 <td class="auto-style4">Giá bán<span style="color:red">*</span>:</td>
                 <td style="text-align: left">
-                    <%-- Sửa ID thành txtGia cho khớp --%>
                     <asp:TextBox ID="txtGia" runat="server" CssClass="text-input" TextMode="Number"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvGia" runat="server"
                         ControlToValidate="txtGia" ErrorMessage="Chưa nhập giá"

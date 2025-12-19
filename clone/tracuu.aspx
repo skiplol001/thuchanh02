@@ -32,7 +32,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="tra-cuu-container">
-        <h2>Hệ Thống Tra Cứu Hoa</h2>
         
         <div class="search-box">
             <div class="search-row">
@@ -53,8 +52,7 @@
             CellPadding="15">
             <ItemTemplate>
                 <div class="flower-card">
-                    <%-- Sử dụng thư mục Images/ tương ứng với đường dẫn vật lý của bạn --%>
-                    <img src='<%# "Images/" + Eval("Hinh") %>' class="flower-img" onerror="this.src='Images/no-image.png';" />
+                    <img src='<%# "Images/" + Eval("Hinh") %>' class="flower-img" />
                     
                     <div class="flower-name">
                         <%# Eval("TenHoa") %>
