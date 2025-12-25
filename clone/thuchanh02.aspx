@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="thuchanh02.aspx.cs" Inherits="clone.thuchanh02" %>
-
+﻿
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">

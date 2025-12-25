@@ -1,0 +1,275 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="default.master.cs" Inherits="lab05._default" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>BookStore Online</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        .header {
+            background-color: white;
+            padding: 15px 20px;
+            border-bottom: 2px solid #ff4081;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header-top {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .website-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff4081;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .main-nav a {
+            text-decoration: none;
+            color: #555;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        .main-nav a:hover {
+            color: #ff4081;
+            background-color: #fff0f6;
+            transform: translateY(-2px);
+        }
+        .main-nav a.active {
+            color: #ff4081;
+            background-color: #fff0f6;
+            border-bottom: 3px solid #ff4081;
+        }
+        .content-wrapper {
+            min-height: 70vh;
+            padding: 30px 20px;
+        }
+        .form-container {
+            margin: 0 auto;
+            max-width: 1200px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            padding: 30px;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 250px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+            left: 0;
+            top: 100%;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: #555;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.2s ease;
+            font-size: 14px;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #fff0f6;
+            color: #ff4081;
+            padding-left: 25px;
+        }
+        
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-header {
+            background-color: #ff4081;
+            color: white;
+            padding: 12px 20px;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        /* Custom scrollbar for dropdown */
+        .dropdown-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .dropdown-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .dropdown-content::-webkit-scrollbar-thumb {
+            background: #ff4081;
+            border-radius: 3px;
+        }
+        
+        .dropdown-content::-webkit-scrollbar-thumb:hover {
+            background: #e91e63;
+        }
+        
+        /* User actions */
+        .user-actions {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .user-action-link {
+            color: #ff4081;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: #fff0f6;
+            border: 1px solid #ff80ab;
+        }
+        
+        .user-action-link:hover {
+            background: #ff4081;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(255, 64, 129, 0.3);
+        }
+        
+        .cart-count {
+            background: #ff4081;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 5px;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header class="header">
+            <div class="header-top">
+                <div class="website-name">BOOKSTORE ONLINE</div>
+            </div>
+            
+            <!-- User actions (Đăng nhập & Giỏ hàng) -->
+            <div class="user-actions">
+                <asp:HyperLink ID="lnkDangNhap" runat="server" 
+                    NavigateUrl="~/dangnhap.aspx" 
+                    CssClass="user-action-link">
+                    Đăng nhập
+                </asp:HyperLink>
+                
+                <asp:HyperLink ID="lnkGioHang" runat="server" 
+                    NavigateUrl="~/giohang.aspx" 
+                    CssClass="user-action-link">
+                     Giỏ hàng
+                    <span class="cart-count" id="spCartCount" runat="server">0</span>
+                </asp:HyperLink>
+            </div>
+            
+            <nav class="main-nav">
+                <asp:HyperLink ID="lnkTrangChu" runat="server" 
+                    NavigateUrl="~/trangchu.aspx">TRANG CHỦ</asp:HyperLink>
+                
+                <div class="dropdown">
+                    <asp:HyperLink ID="lnkDanhSach" runat="server" 
+                        NavigateUrl="~/danhsach.aspx" 
+                        CssClass="dropdown-toggle">
+                         DANH SÁCH
+                    </asp:HyperLink>
+                    <div class="dropdown-content">
+                        <div class="dropdown-header">CHỦ ĐỀ SÁCH</div>
+                        <asp:Repeater ID="rptChuDe" runat="server" DataSourceID="sqlChuDe">
+                            <ItemTemplate>
+                                <asp:HyperLink ID="lnkChuDe" runat="server" 
+                                    NavigateUrl='<%# "~/danhsach.aspx?MaCD=" + Eval("MaCD") %>'
+                                    Text='<%# Eval("Tenchude") %>'
+                                    CssClass="dropdown-item">
+                                </asp:HyperLink>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="content-wrapper">
+            <div class="form-container">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+        <footer class="footer">
+            ĐÂY LÀ FOOOTER
+        </footer>
+        
+        <asp:SqlDataSource ID="sqlChuDe" runat="server" 
+            ConnectionString="Data Source=.;Initial Catalog=BookStoreDB;Integrated Security=True"
+            SelectCommand="SELECT MaCD, Tenchude FROM ChuDe ORDER BY Tenchude">
+        </asp:SqlDataSource>
+    </form>
+</body>
+</html>

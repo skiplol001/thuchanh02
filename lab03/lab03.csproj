@@ -7,16 +7,16 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5E1B24FD-C529-45AE-989D-F2ED89649226}</ProjectGuid>
+    <ProjectGuid>{21560F6F-E8E7-42B5-8D1B-1F92298F7CB3}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>clone</RootNamespace>
-    <AssemblyName>clone</AssemblyName>
+    <RootNamespace>lab03</RootNamespace>
+    <AssemblyName>lab03</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44323</IISExpressSSLPort>
+    <IISExpressSSLPort>44354</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -68,7 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="thuchanh02.aspx" />
+    <Content Include="qlNhanvien.aspx" />
+    <Content Include="qlPhongban.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -76,12 +77,19 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="thuchanh02.aspx.cs">
-      <DependentUpon>thuchanh02.aspx</DependentUpon>
+    <Compile Include="qlNhanvien.aspx.cs">
+      <DependentUpon>qlNhanvien.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="thuchanh02.aspx.designer.cs">
-      <DependentUpon>thuchanh02.aspx</DependentUpon>
+    <Compile Include="qlNhanvien.aspx.designer.cs">
+      <DependentUpon>qlNhanvien.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="qlPhongban.aspx.cs">
+      <DependentUpon>qlPhongban.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="qlPhongban.aspx.designer.cs">
+      <DependentUpon>qlPhongban.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -110,9 +118,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>52592</DevelopmentServerPort>
+          <DevelopmentServerPort>50893</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44323/</IISUrl>
+          <IISUrl>https://localhost:44354/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
